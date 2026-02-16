@@ -32,7 +32,7 @@ if ($deploymentPhase -eq 'WinPE') {
     # A. SAJÁT SEGÉD SCRIPT BETÖLTÉSE
     # !!! FONTOS: IDE ÍRD BE A SAJÁT GITHUB LINKEDET !!!
     # -----------------------------------------------------------------------
-    $FunctionsUrl = 'https://raw.githubusercontent.com/szilardshome/ADA/refs/heads/main/functions.psm1'
+    $FunctionsUrl = 'https://raw.githubusercontent.com/szilardshome/ADA/main/functions.psm1'
     
     Write-Host -ForegroundColor Yellow "Segédfüggvények betöltése innen: $FunctionsUrl"
     try {
