@@ -228,19 +228,19 @@ if ($deploymentPhase -eq 'WinPE') {
     Repair-WinpePSGalleryTrust -Interactive
     Repair-WinpeFileAzcopyExe -Interactive
     winpe-InstallPowerShellModule -Name OSDCloud
-# -------------------------------------------------------------
-    # CUSTOMIZATION: Language hu-HU and Edition Enterprise
+    
     # -------------------------------------------------------------
-    $Global:OSLanguage = 'hu-HU'
-    $Global:OSEdition  = 'Enterprise'
-    $Global:OSLicense  = 'Volume'
-    Write-Host -ForegroundColor Cyan "Auto-configured for: $Global:OSLanguage | $Global:OSEdition"
+    # CUSTOMIZATION: Force OSDCloud parameters directly
+    # Replaced 'Deploy-OSDCloud' with direct 'Start-OSDCloud'
     # -------------------------------------------------------------
+    
     $EndTime = Get-Date
     $TotalSeconds = [math]::Round(($EndTime - $StartTime).TotalSeconds, 2)
     Write-Host -ForegroundColor DarkGray "[i] Finished in $TotalSeconds seconds"
     $null = Stop-Transcript -ErrorAction Ignore
-    Deploy-OSDCloud
+    
+    # INDITAS: Magyar nyelv, Enterprise kiadas, Volume licenc
+    Start-OSDCloud -OSLanguage 'hu-HU' -OSEdition 'Enterprise' -OSLicense 'Volume'
 }
 #endregion
 
@@ -287,5 +287,3 @@ if ($deploymentPhase -eq 'Windows') {
 
 $EndTime = Get-Date
 $TotalSeconds = [math]::Round(($EndTime - $StartTime).TotalSeconds, 2)
-# Write-Host
-# Write-Host -ForegroundColor DarkGray "[✓] Total Time: $TotalSeconds seconds"
