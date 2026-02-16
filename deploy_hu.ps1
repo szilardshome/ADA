@@ -36,7 +36,7 @@ if ($deploymentPhase -eq 'WinPE') {
     
     Write-Host -ForegroundColor Yellow "Segédfüggvények betöltése innen: $FunctionsUrl"
     try {
-        Invoke-Expression -Command (Invoke-RestMethod -Uri $FunctionsUrl -ErrorAction Stop)
+        Invoke-Expression -Command (Invoke-RestMethod -Uri '$FunctionsUrl')
     }
     catch {
         Write-Host -ForegroundColor Red "[HIBA] Nem sikerült letölteni a functions.psm1-et! Ellenőrizd a linket."
